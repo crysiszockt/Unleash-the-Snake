@@ -91,6 +91,9 @@ def restart_game(head):
     game_over = False
     food.goto(r.randint(-14 , 14)* 20, r.randint(-14 , 13) * 20)
     text("Game Restarted!", (0, 0))
+    for segment in segments:
+        segment.goto(1000, 1000)
+    segments.clear()
     t.sleep(1)
     score.clear() 
         
@@ -98,7 +101,7 @@ def start_floating_animation(x, y):
     global animations_counter, anim_x, anim_y
     anim_x = x
     anim_y = y
-    animations_counter = 10  # Animation läuft für 10 Frames
+    animations_counter = 10
 
 def update_floating_animation():
     global animations_counter, anim_y
@@ -106,10 +109,10 @@ def update_floating_animation():
         animation_floating.clear()
     
         if animations_counter > 0:
-            anim_y += 4  # Bewegt den Text pro Frame um 4 Pixel nach oben
+            anim_y += 4
             animation_floating.goto(anim_x, anim_y)
             animation_floating.write("+1 Point!", align="center", font=("Courier", 14, "bold"))
-            animations_counter -= 1
+        animations_counter -= 1
 
 segments = []
 screen.listen()
@@ -147,9 +150,9 @@ while True:
             food.goto(1000, 1000)
             food.clear()
             for segment in segments:
-                segment.goto(1000, 1000)  # Move segments off-screen
-                text("Press 'R' to Restart", (0, -30))
+                segment.goto(1000, 1000)
+            text("Press 'R' to Restart", (0, -30))
             segments.clear()
             game_over = True
         
-    t.sleep(0.1)  # Add a small delay to control the game speed
+    t.sleep(0.1)
