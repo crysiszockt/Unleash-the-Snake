@@ -26,7 +26,7 @@ Da das Spiel ausschließlich auf Pythons Standardbibliothek (`turtle`, `time`, `
 
 1. **Repository klonen:**
    ```bash
-   git clone https://github.com
+   git clone [https://github.com](https://github.com/crysiszockt/Unleash-the-Snake.git)
    cd snake-python
    ```
 
